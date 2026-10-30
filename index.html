@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#292238">
+  <title>QuickMart — Point of sale</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="javascript.js" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="QuickMart point of sale">
+        <span class="brand-mark" aria-hidden="true">q</span>
+        <span class="brand-copy"><strong>quickmart</strong><small>NEIGHBORHOOD GOODS</small></span>
+      </a>
+      <div class="topbar-center"><span class="live-dot"></span> REGISTER 01 <span class="topbar-divider">/</span> POINT OF SALE</div>
+      <button id="new-order" class="button button-light" type="button"><span aria-hidden="true">＋</span> New order</button>
+    </header>
+
+    <main class="workspace">
+      <section class="catalog-panel" aria-labelledby="catalog-title">
+        <div class="page-intro">
+          <div>
+            <p class="eyebrow">YOUR COUNTER, AT A GLANCE</p>
+            <h1 id="catalog-title">Make someone’s day.</h1>
+            <p class="intro-copy">A good basket starts with the good stuff.</p>
+          </div>
+          <div class="catalog-stamp" aria-hidden="true"><span>FRESH</span><strong>01</strong><span>DAILY</span></div>
+        </div>
+
+        <div class="catalog-tools">
+          <label class="search-box">
+            <span class="search-icon" aria-hidden="true">⌕</span>
+            <span class="visually-hidden">Search products</span>
+            <input id="search" type="search" placeholder="Find something lovely…" autocomplete="off">
+            <kbd>/</kbd>
+          </label>
+          <label class="visually-hidden" for="category-select">Filter products by category</label>
+          <select id="category-select" class="category-select" aria-label="Filter products by category"></select>
+        </div>
+
+        <nav id="category-tabs" class="category-tabs" aria-label="Product categories"></nav>
+
+        <div class="catalog-heading">
+          <h2 id="category-heading">All the good things</h2>
+          <span id="product-count" class="result-count"></span>
+        </div>
+        <div id="product-list" class="product-grid" aria-live="polite"></div>
+      </section>
+
+      <aside class="order-panel" aria-labelledby="order-title">
+        <div class="order-heading">
+          <div>
+            <p class="eyebrow">A LITTLE SOMETHING FOR</p>
+            <h2 id="order-title">Order #001</h2>
+          </div>
+          <span class="order-badge"><span aria-hidden="true">✳</span> IN PROGRESS</span>
+        </div>
+
+        <div class="order-items-wrap">
+          <div class="order-items-label"><span>YOUR BASKET</span><span id="item-count">0 items</span></div>
+          <div id="order-list" class="order-items"></div>
+        </div>
+
+        <div class="order-totals" aria-label="Order totals">
+          <p><span>Subtotal</span><strong id="subtotal">$0.00</strong></p>
+          <p id="discount-row" class="discount-row" hidden><span>Little thank-you · 10%</span><strong id="discount">−$0.00</strong></p>
+          <p class="total-row"><span>Total to pay</span><strong id="final-total">$0.00</strong></p>
+          <p id="savings-note" class="savings-note" hidden></p>
+        </div>
+
+        <div class="payment-block">
+          <label for="amount-paid">AMOUNT RECEIVED</label>
+          <div class="payment-input-wrap"><span>$</span><input id="amount-paid" type="number" min="0" step="0.01" inputmode="decimal" placeholder="0.00"></div>
+          <p id="change-text" class="payment-message" role="status" aria-live="polite"></p>
+        </div>
+
+        <div class="order-actions">
+          <button id="complete-sale" class="button button-primary" type="button">Complete sale <span aria-hidden="true">↗</span></button>
+          <button id="clear-order" class="button button-quiet" type="button">Clear basket</button>
+        </div>
+        <p class="order-footnote"><span aria-hidden="true">✦</span> A 10% thank-you is applied over $100.</p>
+      </aside>
+    </main>
+    <footer class="page-footer"><span>GOOD THINGS, CLOSE TO HOME.</span><span>QUICKMART <i>·</i> REGISTER 01</span></footer>
+  </div>
+
+  <div id="receipt-overlay" class="receipt-overlay" role="dialog" aria-modal="true" aria-labelledby="receipt-title" hidden>
+    <section id="receipt" class="receipt-card"></section>
+  </div>
+</body>
+</html>
